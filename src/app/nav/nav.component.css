@@ -1,0 +1,8 @@
+li {
+  background-color: rgb(251, 255, 0);
+  padding: 10px;
+}
+
+li:hover {
+  background-color: rgb(45, 231, 255);
+}

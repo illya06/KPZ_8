@@ -1,0 +1,54 @@
+<div class='container row mb-5'>
+  <div class='col-4 center mt-5'>
+    <form [formGroup]='form'>
+      <div class="mb-3">
+        <label class="form-label">Id</label>
+        <input formControlName="supplierId" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Supplier name</label>
+        <input formControlName="supplierName" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Phone</label>
+        <input formControlName="supplierPhone" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input formControlName="supplierEmail" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Address</label>
+        <input formControlName="supplierAddress" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Contact name</label>
+        <input formControlName="contactName" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-outline-dark" (click)="onSubmit()" [disabled]="form.invalid">Add</button>
+      <button type="submit" class="btn btn-outline-dark mx-4" (click)="onEdit()" [disabled]="form.invalid">Edit</button>
+    </form>
+  </div>
+  <div class="col-3 center mt-5 ">
+    {{form.value | json}}
+  </div>
+  <div class='col-5 center mt-5'>
+    <div class="container disp">
+      <app-customer-item *ngFor="let supl of suppliers" [name]="supl.supplierName" [email]="supl.supplierEmail" [id]="supl.supplierId"></app-customer-item>
+    </div>
+  </div>
+  <div class="row">
+    <div class='col-4 center mt-5'>
+      <form [formGroup]='deleteForm'>
+        <div class="mb-3">
+          <label class="form-label">Customer id</label>
+          <input formControlName="id" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-outline-dark" (click)="onDelete()" [disabled]="deleteForm.invalid">Delete</button>
+      </form>
+    </div>
+    <div class='col-2 center mt-5'>
+      {{deleteForm.value | json}}
+    </div>
+  </div>
+</div>
